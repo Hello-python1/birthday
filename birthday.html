@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beloved Saritha (Mummy)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Main Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #5a2a2a;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #d23669;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a05353;
+            animation: fadeIn 2s ease;
+        }
+
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d23669;
+            margin: 20px 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        /* Heart Animations */
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff6b81;
+            transform: rotate(45deg);
+            opacity: 0;
+            animation: floatHearts 5s infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -15px;
+        }
+
+        /* Message Box */
+        .message-box {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(210, 54, 105, 0.15);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+        }
+
+        .message-box:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed #ffb6c1;
+            border-radius: 25px;
+            animation: pulse 3s infinite;
+            pointer-events: none;
+        }
+
+        .promise-list {
+            margin: 30px 0;
+        }
+
+        .promise-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            animation: fadeInLeft 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .promise-item:before {
+            content: '❤';
+            position: absolute;
+            left: 0;
+            color: #ff6b81;
+        }
+
+        /* Signature */
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #d23669;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Date Box */
+        .date-box {
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: #a05353;
+            animation: fadeIn 3s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0; 
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes floatHearts {
+            0% { 
+                transform: rotate(45deg) translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            50% { 
+                opacity: 0.7;
+            }
+            100% { 
+                transform: rotate(45deg) translateY(-300px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .birthday-title {
+                font-size: 2rem;
+            }
+            .message-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div id="hearts-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>For My Beloved Saritha</h1>
+            <div class="subtitle">Mummy, you mean the world to me</div>
+        </div>
+
+        <div class="birthday-title">Happy Birthday Mummy! ❤️</div>
+        <div class="date-box">April 16th - A day as special as you are</div>
+
+        <div class="message-box">
+            <p>My dearest Mummy,</p>
+            
+            <p>On your special day, I want you to know how much you're loved. I know my actions have hurt you, and you deserve nothing but happiness. This isn't just about words - it's my commitment to show up for you every day.</p>
+
+            <div class="promise-list">
+                <div class="promise-item" style="animation-delay: 0.2s">To always cherish and respect you</div>
+                <div class="promise-item" style="animation-delay: 0.4s">To make you feel valued and appreciated</div>
+                <div class="promise-item" style="animation-delay: 0.6s">To rebuild trust through my consistent actions</div>
+                <div class="promise-item" style="animation-delay: 0.8s">To never take your love and care for granted</div>
+            </div>
+
+            <p>Our future together isn't just about time - it's about proving I can be the person you deserve to have in your life.</p>
+            
+            <div class="signature">With all my love,<br>Your Jay</div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 25; // Increased number of hearts
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                // Random position
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                heart.style.width = size + 'px';
+                heart.style.height = size + 'px';
+                
+                // Random animation duration
+                heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(heart);
+            }
+        }
+
+        // Create hearts when page loads
+        window.addEventListener('load', createHearts);
+
+        // Make message box pulse on hover
+        const messageBox = document.querySelector('.message-box');
+        messageBox.addEventListener('mouseenter', () => {
+            messageBox.style.transform = 'scale(1.02)';
+            messageBox.style.boxShadow = '0 15px 40px rgba(210, 54, 105, 0.25)';
+        });
+        messageBox.addEventListener('mouseleave', () => {
+            messageBox.style.transform = 'scale(1)';
+            messageBox.style.boxShadow = '0 10px 30px rgba(210, 54, 105, 0.15)';
+        });
+
+        // Birthday surprise after 5 seconds
+        setTimeout(() => {
+            const birthdayElement = document.createElement('div');
+            birthdayElement.innerHTML = '<div style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,182,193,0.9); z-index:100; display:flex; justify-content:center; align-items:center; flex-direction:column; animation:fadeIn 1s ease;"><h1 style="font-family:\'Dancing Script\', cursive; color:#d23669; font-size:3rem; text-align:center;">Happy Birthday Mummy!<br>❤️<br>Saritha</h1></div>';
+            document.body.appendChild(birthdayElement);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                birthdayElement.style.animation = 'fadeOut 1s ease';
+                setTimeout(() => {
+                    document.body.removeChild(birthdayElement);
+                }, 1000);
+            }, 3000);
+        }, 5000);
+    </script>
+</body>
+</html>
